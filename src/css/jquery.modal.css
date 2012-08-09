@@ -1,0 +1,35 @@
+#jquery-modal-overlay{
+    background: rgba(255, 255, 255, 0.7);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+#jquery-modal-overlay-popup{
+    background: #FFF;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
+    -moz-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
+    -ms-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
+    -o-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
+    -webkit-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
+    left: 50%;
+    overflow: hidden;
+    padding: 5px 0;
+    position: absolute;
+}
+#jquery-modal-overlay-popup-close{
+    color: #444;
+    cursor: pointer;
+    display: block;
+    font: bold 12px Verdana;
+    text-align: right;
+    padding: 0 10px 10px;
+}
