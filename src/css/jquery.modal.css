@@ -6,6 +6,7 @@
     position: absolute;
     top: 0;
     width: 100%;
+    z-index: 900000;
 }
 #jquery-modal-overlay-popup{
     background: #FFF;
@@ -32,4 +33,7 @@
     font: bold 12px Verdana;
     text-align: right;
     padding: 0 10px 10px;
+}
+#jquery-modal-overlay-popup-close:hover{
+    background: none;
 }
