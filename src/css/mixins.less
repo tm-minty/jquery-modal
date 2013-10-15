@@ -1,0 +1,199 @@
+@modernizrPrefix: ~"";
+.border-radius(@radiusTL: 5px, @radiusTR: 5px, @radiusBR: 5px, @radiusBL: 5px) {
+    border-radius: @radiusTL @radiusTR @radiusBR @radiusBL;
+    -moz-border-radius: @radiusTL @radiusTR @radiusBR @radiusBL;
+    -ms-border-radius: @radiusTL @radiusTR @radiusBR @radiusBL;
+    -o-border-radius: @radiusTL @radiusTR @radiusBR @radiusBL;
+    -webkit-border-radius: @radiusTL @radiusTR @radiusBR @radiusBL;
+
+    .@{modernizrPrefix}no-borderradius &{
+        behavior: url(/css/PIE.htc);
+    }
+}
+
+.border-radius(@radius: 5px) {
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+
+    .@{modernizrPrefix}no-borderradius &{
+        behavior: url(/css/PIE.htc); // требует абсолютный путь от веб-корня
+    }
+}
+
+.box-shadow(none){ /* Remove box-shadow */
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+    .@{modernizrPrefix}no-boxshadow &{
+        behavior: url(/css/PIE.htc); // требует абсолютный путь от веб-корня
+    }
+}
+.box-shadow(@x: 0, @y: 0, @blur: 10px, @stretch: 0, @color: rgba(0,0,0,0.5)){ /* Outset box-shadow */
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+    box-shadow: @arguments;
+
+    .@{modernizrPrefix}no-boxshadow &{
+        behavior: url(/css/PIE.htc); // не понимает rgba и требует абсолютный путь от веб-корня
+    }
+}
+.box-shadow(inset, @x: 0, @y: 0, @blur: 10px, @stretch: 0, @color: rgba(0,0,0,0.5)){ /* Inset box-shadow */
+    -moz-box-shadow: inset @arguments;
+    -webkit-box-shadow: inset @arguments;
+    box-shadow: inset @arguments;
+}
+.box-shadow-ie(@color: rgba(0,0,0,0.5), @direction: 45, @strength: 10){
+    filter: progid:DXImageTransform.Microsoft.shadow(direction=@direction, color=@color, strength=@strength);
+}
+
+.background-linear-vertical-gradient(@from, @to){
+    background: @from;
+    background: -moz-linear-gradient(top, @from, @to);
+    background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%,@from), color-stop(100%,@to));
+    background: -webkit-linear-gradient(top, @from, @to);
+    background: -o-linear-gradient(top, @from, @to);
+    background: -ms-linear-gradient(top, @from, @to);
+    background: linear-gradient(top, @from, @to);
+    -pie-background: linear-gradient(@from, @to);
+
+    .@{modernizrPrefix}no-cssgradients &{
+        behavior: url(/css/PIE.htc); // требует абсолютный путь от веб-корня
+    }
+}
+
+.text-shadow(none){ /* Remove text-shadow */
+    text-shadow: none;
+}
+
+.text-shadow(@color: rgba(0,0,0,0.5), @x: 1px, @y: 2px, @radius: 1px){
+    text-shadow: @color @x @y @radius;
+}
+
+.text-shadow-ie(@color: rgba(0,0,0,0.5), @direction: 45, @strength: 4){
+    filter: Shadow(Color=@color, Direction=@direction, Strength=@strength);
+}
+
+.transition(@property: all, @duration: 1s, @timing: ease-in-out, @delay: 0s){
+    -webkit-transition: @property @duration @timing @delay;
+    -moz-transition: @property @duration @timing @delay;
+    -o-transition: @property @duration @timing @delay;
+    transition: @property @duration @timing @delay;
+}
+
+.opacity(@opacity: 0.5) {
+    -moz-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    -webkit-opacity: @opacity;
+    opacity: @opacity;
+
+    @ieopacity: @opacity*100;
+
+    .@{modernizrPrefix}no-opacity &{
+        -ms-filter: e('"progid:DXImageTransform.Microsoft.Alpha(opacity=@{ieopacity})"');
+        filter: e("alpha(opacity=@{ieopacity})");
+        zoom: 1;
+    }
+}
+
+
+.transform(@string: rotate(45deg)) {
+    -ms-transform:@string;
+    -moz-transform:@string;
+    -webkit-transform:@string;
+    -o-transform:@string;
+    transform:@string;
+    // background-color: #ff0;
+}
+
+.border-box() {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.placeholder-color(@color: #999) {
+    input::-webkit-input-placeholder {
+        color:    @color;
+    }
+    input:-moz-placeholder {
+        color:    @color;
+    }
+    input:-ms-input-placeholder {
+        color:    @color;
+    }
+}
+
+.animate (@name, @duration: 1s, @count: infinite, @direction: normal, @function: ease-in-out) {
+    -moz-animation-name: @name;
+    -moz-animation-duration: @duration;
+    -moz-animation-iteration-count: @count;
+    -moz-animation-direction: @direction;
+    -moz-animation-timing-function: @function;
+    -webkit-animation-name: @name;
+    -webkit-animation-duration: @duration;
+    -webkit-animation-iteration-count: @count;
+    -webkit-animation-direction: @direction;
+    -webkit-animation-timing-function: @function;
+}
+
+.clearfix() {
+    &:after {
+        content: '';
+        display: block;
+        height: 0;
+        visibility: none;
+        clear: both;
+    }
+}
+
+.fadeoutGradient (@r, @g, @b) {
+    background: -moz-linear-gradient(left, rgba(@r, @g, @b,0) 0%,rgba(@r, @g, @b,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(@r, @g, @b,0) 0%,rgba(@r, @g, @b,1) 100%);
+    background: linear-gradient(left, rgba(@r, @g, @b,0) 0%,rgba(@r, @g, @b,1) 100%);
+}
+
+#sprite(@w, @h, @x, @y){
+    width: unit(@w, px);
+    height: unit(@h, px);
+    background-position: unit(@x*-1, px) unit(@y*-1, px);
+}
+
+#perspective(@p){
+    -webkit-perspective: unit(@p, px);
+    -moz-perspective: unit(@p, px);
+    -o-perspective: unit(@p, px);
+    perspective: unit(@p, px);
+}
+
+#transition(@transition) {
+    -webkit-transition: e(%(~"-webkit-%s", @transition));
+    -moz-transition:    e(%(~"-moz-%s", @transition));
+    -o-transition:      e(%(~"-o-%s", @transition));
+    transition:         @transition;
+}
+
+#transform-style(@t){
+    -webkit-transform-style: @t;
+    -moz-transform-style: @t;
+    -o-transform-style: @t;
+    transform-style: @t;
+}
+
+#transform-origin(@t){
+    -webkit-transform-origin: @t;
+    -moz-transform-origin: @t;
+    -o-transform-origin: @t;
+    transform-origin: @t;
+}
+
+#transform(@t){
+    -webkit-transform: @t;
+    -moz-transform: @t;
+    -o-transform: @t;
+    transform: @t;
+}

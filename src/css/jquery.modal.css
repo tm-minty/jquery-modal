@@ -1,39 +1,82 @@
-#jquery-modal-overlay{
-    background: rgba(255, 255, 255, 0.7);
-    display: none;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 900000;
+#jquery-modal-overlay {
+  background: rgba(255, 255, 255, 0.7);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 900000;
 }
-#jquery-modal-overlay-popup{
-    background: #FFF;
-    border: 1px solid #e3e3e3;
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
-    -moz-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
-    -ms-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
-    -o-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
-    -webkit-box-shadow: 0 0 11px 0 rgba(0, 0, 0, .17);
-    left: 50%;
-    overflow: hidden;
-    padding: 5px 0;
-    position: absolute;
+.ie8 #jquery-modal-overlay,
+.ie7 #jquery-modal-overlay {
+  background-color: transparent;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQMAAAAB/jzhAAAAA1BMVEX///+nxBvIAAAAAXRSTlOzEo46UAAAABVJREFUeF7NwIEAAAAAgKD9qdeoSAMAlgABU7/4kgAAAABJRU5ErkJggg==');
 }
-#jquery-modal-overlay-popup-close{
-    color: #444;
-    cursor: pointer;
-    display: block;
-    font: bold 12px Verdana;
-    text-align: right;
-    padding: 0 10px 10px;
+#jquery-modal-overlay.mobile {
+  background: rgba(255, 255, 255, 0.98);
 }
-#jquery-modal-overlay-popup-close:hover{
-    background: none;
+#jquery-modal-overlay-popup {
+  background: #FFF;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px 5px 5px 5px;
+  -moz-border-radius: 6px 5px 5px 5px;
+  -ms-border-radius: 6px 5px 5px 5px;
+  -o-border-radius: 6px 5px 5px 5px;
+  -webkit-border-radius: 6px 5px 5px 5px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  /* Outset box-shadow */
+
+  -moz-box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.17);
+  -webkit-box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.17);
+  box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.17);
+  left: 50%;
+  overflow: hidden;
+  padding: 5px 0;
+  position: absolute;
+}
+.no-borderradius #jquery-modal-overlay-popup {
+  behavior: url(/css/PIE.htc);
+}
+.no-borderradius #jquery-modal-overlay-popup {
+  behavior: url(/css/PIE.htc);
+}
+.no-boxshadow #jquery-modal-overlay-popup {
+  behavior: url(/css/PIE.htc);
+}
+.mobile #jquery-modal-overlay-popup {
+  /* Remove box-shadow */
+
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /* Outset box-shadow */
+
+  -moz-box-shadow: none 0 10px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: none 0 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: none 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+.no-boxshadow .mobile #jquery-modal-overlay-popup {
+  behavior: url(/css/PIE.htc);
+}
+.no-boxshadow .mobile #jquery-modal-overlay-popup {
+  behavior: url(/css/PIE.htc);
+}
+#jquery-modal-overlay-popup-close {
+  cursor: pointer;
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAaCAMAAACw0Z1uAAABDlBMVEWpqalXV1epqampqalXV1dXV1epqampqalXV1epqampqalXV1dXV1dXV1dXV1dXV1epqampqampqalXV1dXV1epqalXV1epqampqampqalXV1epqalXV1epqampqalXV1dXV1dXV1epqampqalXV1dXV1epqalXV1epqalXV1dXV1epqampqampqampqampqampqampqampqampqampqampqampqalXV1dXV1epqampqalXV1dXV1epqampqalXV1epqampqalXV1dXV1epqalXV1epqalXV1epqalXV1epqalXV1dXV1dXV1epqalXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1epqalXV1eHilO0AAAAWHRSTlMAAPkwMPn0cfzSH/Qfi9Jxi/z+8P7w/eMMeHC8DKBw43jlev0HoOW8B3qhobd+nlSmCn9lXS10fn9caAq3wQ9UdwYGnglcpaWAgOvrLXSoqAlopmXBD11390dyoQAAAO9JREFUeF5djtd2wmAMg20S9g6Bskop0DK79957b/n9X6S/fRldSUfHn0VOmVI6kUiXMmRKxmCKJTVtov+oqdrHCpFXxsHGDGjV11D2aB44p4vV6Yg6wC0tA7hXRA/AHEHlEe0YzdqetruBa/W2Q6Pp6zUdAutK3qq3gJPTbSVTA0HV/gZoRFdFNzNzLl/IZgv5nLMuFuNiihc17kvtSVOlJntMfkpujo5Fhu0zSfm0JPLHl1eTATdF7mhRRB7YaezMAhnFZ342mrVjbV9C1+ptkweTt3f+EPlU8ld7KPL986tk7kpYsb+hdKOrIpv/AXugPdPzx1DqAAAAAElFTkSuQmCC) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 14px;
+  height: 13px;
+}
+#jquery-modal-overlay-popup-close:hover {
+  background-position: 0 -13px;
 }
